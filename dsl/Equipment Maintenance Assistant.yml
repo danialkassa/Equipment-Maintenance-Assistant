@@ -1,0 +1,639 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: advanced-chat
+  name: Equipment Maintenance Assistant
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/deepseek:0.0.24@9e12eef09973667f0eaf4f082af883167e1de88740b22e71e71488d020c3778a
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/ollama:1.0.2@ef203a332d1b2b8952dbaa012be70be3e0a2d576b001489fb3b070efc970ffbe
+    version: null
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload: {}
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: if-else
+      id: 1791701978975-source-1791703313868-target
+      source: '1791701978975'
+      sourceHandle: source
+      target: '1791703313868'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: knowledge-retrieval
+      id: 1791703313868-false-1791703544828-target
+      source: '1791703313868'
+      sourceHandle: 'false'
+      target: '1791703544828'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: knowledge-retrieval
+      id: 1791703313868-true-1791703444207-target
+      source: '1791703313868'
+      sourceHandle: 'true'
+      target: '1791703444207'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: variable-aggregator
+      id: 1791703444207-source-1791703865812-target
+      source: '1791703444207'
+      sourceHandle: source
+      target: '1791703865812'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: variable-aggregator
+      id: 1791703544828-source-1791703865812-target
+      source: '1791703544828'
+      sourceHandle: source
+      target: '1791703865812'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: variable-aggregator
+        targetType: if-else
+      id: 1791703865812-source-1791704494335-target
+      source: '1791703865812'
+      sourceHandle: source
+      target: '1791704494335'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1791704494335-false-1791704765641-target
+      source: '1791704494335'
+      sourceHandle: 'false'
+      target: '1791704765641'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1791704494335-true-1791704627038-target
+      source: '1791704494335'
+      sourceHandle: 'true'
+      target: '1791704627038'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1791704765641-source-1791705483005-target
+      source: '1791704765641'
+      sourceHandle: source
+      target: '1791705483005'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1791705483005-source-1791705992902-target
+      source: '1791705483005'
+      sourceHandle: source
+      target: '1791705992902'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1791705992902-true-1791706301000-target
+      source: '1791705992902'
+      sourceHandle: 'true'
+      target: '1791706301000'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1791705992902-false-1791706302000-target
+      source: '1791705992902'
+      sourceHandle: 'false'
+      target: '1791706302000'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: Start
+        type: start
+        variables:
+        - default: ''
+          hint: ''
+          label: equipment model
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: equipment_model
+      height: 108
+      id: '1791701978975'
+      position:
+        x: 0
+        y: 235.96666666666667
+      positionAbsolute:
+        x: 0
+        y: 235.96666666666667
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: empty
+            id: 88008fb9-2629-4325-a471-5268c67d4ff1
+            value: ''
+            varType: string
+            variable_selector:
+            - '1791701978975'
+            - equipment_model
+          logical_operator: and
+        selected: false
+        title: Model Filter Check
+        type: if-else
+      height: 139
+      id: '1791703313868'
+      position:
+        x: 153.42857142857144
+        y: 422.92380952380955
+      positionAbsolute:
+        x: 153.42857142857144
+        y: 422.92380952380955
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    - data:
+        dataset_ids:
+        - Xij9fHMN8MIz8Ul3dql5w56s2POJ1DAmog8dpMqMaQdovSbG3S8wPPPfG/TW87vb
+        - yAwYcxI7fsycdNXFKQmTFFXojzlCtmPsYtcy+VRTgIkwW1SQxFINN12fy4LTvkrc
+        - HHrc6CXelV56dVD0tn0FKNi8oIEQWOphQW+D190sNb3e3jIC4nIqQr2i3A88ChKh
+        - 4Up8a23iR0icVxWkL7ijPSNagL/uMNmdEbLyBvXwanHkeM0I9glJQjNquHDBgerX
+        multiple_retrieval_config:
+          reranking_enable: false
+          reranking_mode: weighted_score
+          reranking_model: null
+          score_threshold: 0.35
+          top_k: 10
+          weights:
+            keyword_setting:
+              keyword_weight: 0.3
+            vector_setting:
+              embedding_model_name: nomic-embed-text
+              embedding_provider_name: langgenius/ollama/ollama
+              vector_weight: 0.7
+            weight_type: customized
+        query_attachment_selector: []
+        query_variable_selector:
+        - '1791701978975'
+        - sys.query
+        retrieval_mode: multiple
+        selected: false
+        title: Retrieval - All Models
+        type: knowledge-retrieval
+      height: 173
+      id: '1791703444207'
+      position:
+        x: 467.2857142857142
+        y: 327.2238095238095
+      positionAbsolute:
+        x: 467.2857142857142
+        y: 327.2238095238095
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    - data:
+        dataset_ids:
+        - Xij9fHMN8MIz8Ul3dql5w56s2POJ1DAmog8dpMqMaQdovSbG3S8wPPPfG/TW87vb
+        - yAwYcxI7fsycdNXFKQmTFFXojzlCtmPsYtcy+VRTgIkwW1SQxFINN12fy4LTvkrc
+        - HHrc6CXelV56dVD0tn0FKNi8oIEQWOphQW+D190sNb3e3jIC4nIqQr2i3A88ChKh
+        - 4Up8a23iR0icVxWkL7ijPSNagL/uMNmdEbLyBvXwanHkeM0I9glJQjNquHDBgerX
+        metadata_filtering_conditions:
+          conditions:
+          - comparison_operator: is
+            id: 8461234a-defd-4f19-92da-2a0eadb61363
+            metadata_id: built-in
+            name: equipment_model
+            value: '{{#1791701978975.equipment_model#}}'
+          logical_operator: and
+        metadata_filtering_mode: manual
+        multiple_retrieval_config:
+          reranking_enable: false
+          reranking_mode: weighted_score
+          reranking_model: null
+          score_threshold: 0.35
+          top_k: 10
+          weights:
+            keyword_setting:
+              keyword_weight: 0.3
+            vector_setting:
+              embedding_model_name: nomic-embed-text
+              embedding_provider_name: langgenius/ollama/ollama
+              vector_weight: 0.7
+            weight_type: customized
+        query_attachment_selector: []
+        query_variable_selector:
+        - '1791701978975'
+        - sys.query
+        retrieval_mode: multiple
+        selected: false
+        title: Retrieval - Selected Model
+        type: knowledge-retrieval
+      height: 173
+      id: '1791703544828'
+      position:
+        x: 445.8571428571428
+        y: 531.652380952381
+      positionAbsolute:
+        x: 445.8571428571428
+        y: 531.652380952381
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    - data:
+        output_type: array[string]
+        selected: false
+        title: Combined Retrieval Context
+        type: variable-aggregator
+        variables:
+        - - '1791703444207'
+          - result
+        - - '1791703544828'
+          - result
+      height: 108
+      id: '1791703865812'
+      position:
+        x: 782.5714285714287
+        y: 435.05714285714294
+      positionAbsolute:
+        x: 782.5714285714287
+        y: 435.05714285714294
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: empty
+            id: 70b3bdff-d292-412c-bf97-4348e7411045
+            value: ''
+            varType: string
+            variable_selector:
+            - '1791703865812'
+            - output
+          logical_operator: and
+        selected: false
+        title: Retrieval Result Check
+        type: if-else
+      height: 123
+      id: '1791704494335'
+      position:
+        x: 1073.5714285714284
+        y: 412.70000000000005
+      positionAbsolute:
+        x: 1073.5714285714284
+        y: 412.70000000000005
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    - data:
+        answer: '未找到相关技术资料。请提供装备型号，或联系技术支援。
+
+          (No relevant technical document found. Please provide the equipment model.)'
+        selected: false
+        title: No Results Fallback
+        type: answer
+        variables: []
+      height: 147
+      id: '1791704627038'
+      position:
+        x: 1414.5714285714287
+        y: 383.94285714285724
+      positionAbsolute:
+        x: 1414.5714285714287
+        y: 383.94285714285724
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1791703865812'
+          - output
+        memory:
+          query_prompt_template: '{{#sys.query#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: true
+            size: 3
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-flash
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 203cb286-34d9-450b-88f0-050127d4e4bb
+          role: system
+          text: '你是装备维修技术专家。根据提供的技术资料回答用户问题，内容按 structured_output 的 JSON 字段组织。
+
+
+            规则：
+
+            - 只使用提供的资料，绝不编造
+
+            - 每条诊断步骤/维修操作末尾标注来源文档名称
+
+            - 资料中没有的内容，在对应字段写"资料未提及"
+
+            - safety_warnings 无内容时填 ["无"]
+
+            - source_documents 列出实际参考的文档名称
+
+            - 中文回答，专业简洁'
+        - id: c65b0322-3867-4ff2-a09f-84da9c4d71de
+          role: user
+          text: '{{#1791701978975.equipment_model#}}
+
+
+            {{#sys.query#}}'
+        selected: false
+        structured_output:
+          schema:
+            properties:
+              diagnostic_steps:
+                description: 按顺序排列的具体诊断操作步骤，每条末尾标注来源文档名称
+                items:
+                  type: string
+                type: array
+              possible_causes:
+                description: 2-5 条可能的故障原因，每条一句话
+                items:
+                  type: string
+                type: array
+              repair_procedure:
+                description: 按顺序排列的具体维修操作流程，每条末尾标注来源文档名称
+                items:
+                  type: string
+                type: array
+              safety_warnings:
+                description: 安全警告列表；无内容时填 ["无"]
+                items:
+                  type: string
+                type: array
+              source_documents:
+                description: 实际参考的技术资料文档名称列表
+                items:
+                  type: string
+                type: array
+            required:
+            - possible_causes
+            - diagnostic_steps
+            - repair_procedure
+            - source_documents
+            type: object
+        structured_output_enabled: true
+        title: Maintenance Diagnosis LLM
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1791704765641'
+      position:
+        x: 1328.8571428571427
+        y: 553.8000000000001
+      positionAbsolute:
+        x: 1328.8571428571427
+        y: 553.8000000000001
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    - data:
+        code: "def main(llm_output):\n    import json\n    if not llm_output:\n  \
+          \      return {\"valid\": \"false\", \"answer_md\": \"\", \"error\": \"\
+          empty_output\"}\n    try:\n        data = json.loads(llm_output) if isinstance(llm_output,\
+          \ str) else llm_output\n    except Exception:\n        return {\"valid\"\
+          : \"false\", \"answer_md\": \"\", \"error\": \"parse_failed\"}\n\n    if\
+          \ not isinstance(data, dict):\n        return {\"valid\": \"false\", \"\
+          answer_md\": \"\", \"error\": \"not_an_object\"}\n\n    required = [\"possible_causes\"\
+          , \"diagnostic_steps\", \"repair_procedure\", \"source_documents\"]\n  \
+          \  missing = [k for k in required if not data.get(k)]\n    if missing:\n\
+          \        return {\"valid\": \"false\", \"answer_md\": \"\", \"error\": \"\
+          missing: \" + \",\".join(missing)}\n\n    md = \"## 可能原因\\n\" + \"\\n\"\
+          .join(f\"- {x}\" for x in data[\"possible_causes\"])\n    md += \"\\n\\\
+          n## 诊断步骤\\n\" + \"\\n\".join(f\"{i}. {x}\" for i, x in enumerate(data[\"\
+          diagnostic_steps\"], 1))\n    md += \"\\n\\n## 维修流程\\n\" + \"\\n\".join(f\"\
+          {i}. {x}\" for i, x in enumerate(data[\"repair_procedure\"], 1))\n    sw\
+          \ = data.get(\"safety_warnings\") or [\"无\"]\n    md += \"\\n\\n## 安全警告\\\
+          n\" + \"\\n\".join(f\"- {x}\" for x in sw)\n    md += \"\\n\\n## 参考文档\\\
+          n\" + \"\\n\".join(f\"- {x}\" for x in data[\"source_documents\"])\n   \
+          \ return {\"valid\": \"true\", \"answer_md\": md, \"error\": \"\"}\n"
+        code_language: python3
+        outputs:
+          answer_md:
+            children: null
+            type: string
+          error:
+            children: null
+            type: string
+          valid:
+            children: null
+            type: string
+        selected: false
+        title: Structured Output Validator
+        type: code
+        variables:
+        - value_selector:
+          - '1791704765641'
+          - structured_output
+          variable: llm_output
+      height: 51
+      id: '1791705483005'
+      position:
+        x: 1589.8571428571427
+        y: 559.1571428571428
+      positionAbsolute:
+        x: 1589.8571428571427
+        y: 559.1571428571428
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 1c7f9158-cf1f-4c9f-a4bf-c7544c9af4e1
+            value: 'true'
+            varType: string
+            variable_selector:
+            - '1791705483005'
+            - valid
+          logical_operator: and
+        selected: false
+        title: Validation Result Check
+        type: if-else
+      height: 123
+      id: '1791705992902'
+      position:
+        x: 1848
+        y: 559.1571428571428
+      positionAbsolute:
+        x: 1848
+        y: 559.1571428571428
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    - data:
+        answer: '{{#1791705483005.answer_md#}}'
+        selected: false
+        title: Final Maintenance Answer
+        type: answer
+        variables: []
+      height: 101
+      id: '1791706301000'
+      position:
+        x: 2105
+        y: 504
+      positionAbsolute:
+        x: 2105
+        y: 504
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    - data:
+        answer: '回答生成失败。请重试，或提供更详细的故障描述。
+
+          (Answer generation failed. Please retry with a more detailed fault description.)'
+        selected: false
+        title: Validation Failed Answer
+        type: answer
+        variables: []
+      height: 147
+      id: '1791706302000'
+      position:
+        x: 2110
+        y: 665
+      positionAbsolute:
+        x: 2110
+        y: 665
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 0
+    viewport:
+      x: -605.85
+      y: 265.85
+      zoom: 0.7
+  rag_pipeline_variables: []
