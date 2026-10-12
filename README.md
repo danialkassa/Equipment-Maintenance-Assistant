@@ -11,7 +11,6 @@ A portfolio demonstration of an AI automation project built with Dify. It shows 
 - `scripts/`: evaluation utilities
 - `setup/`: setup scripts for preparing the project
 - `docs/`: project documentation and screenshots
-- `instructionsDify*.md`: prompts and implementation notes
 
 Engineering documentation is available in `docs/ARCHITECTURE.md`, `docs/SECURITY.md`,
 `docs/OPERATIONS.md`, `docs/EVALUATION.md`, and `docs/BUSINESS-VALUE.md`.
