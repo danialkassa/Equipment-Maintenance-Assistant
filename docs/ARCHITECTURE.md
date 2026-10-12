@@ -2,7 +2,9 @@
 
 ## Purpose and scope
 
-The Equipment Maintenance Assistant answers Chinese-language maintenance questions using the Dify knowledge base. It is an advisory system for diagnosis and maintenance guidance. It does not control equipment, execute repairs, change settings, order parts, or replace an authorized technician.
+The Equipment Maintenance Assistant is a portfolio demonstration of a reusable Dify knowledge-base assistant. It answers Chinese-language maintenance questions using the supplied sample documents. The sample equipment data is realistic demonstration content, not information belonging to one specific company. The design can be adapted to another organization's manuals and procedures.
+
+It is an advisory system for diagnosis and maintenance guidance. It does not control equipment, execute repairs, change settings, order parts, or replace an authorized technician.
 
 ## Data flow
 
@@ -41,4 +43,4 @@ The workflow definition is exported in `dsl/Equipment Maintenance Assistant.yml`
 
 ## Known limitations
 
-The current export contains provider and dataset identifiers but not a deployable Dify server configuration. Dataset IDs must be replaced or verified in the target Dify workspace. No external repair, inventory, CMMS, or approval integration is present.
+The current export contains provider and dataset identifiers but not a deployable Dify server configuration. When the portfolio demo is imported into another Dify workspace, the supplied documents must be uploaded to that workspace and the retrieval dataset IDs must be updated or verified. No external repair, inventory, CMMS, or approval integration is present because this project demonstrates the assistant design rather than a company-specific integration.

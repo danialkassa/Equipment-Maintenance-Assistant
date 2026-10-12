@@ -1,6 +1,6 @@
 # Equipment Maintenance Assistant
 
-A Dify knowledge-base and evaluation project for answering equipment maintenance questions from manuals, parts catalogs, standard operating procedures, and fault cases.
+A portfolio demonstration of an AI automation project built with Dify. It shows how to create a reusable equipment-maintenance assistant that answers questions from manuals, parts catalogs, standard operating procedures, and fault cases. It is designed to demonstrate engineering skills to potential employers and clients, not to represent one specific company's internal system.
 
 ## Project contents
 
@@ -35,3 +35,7 @@ It exits with a non-zero status unless positive cases meet the configured 80% th
 and all negative cases receive a documented fallback response.
 
 Keep local credentials and environment configuration in `.env`; it is intentionally excluded from version control.
+
+## Portfolio purpose
+
+This project demonstrates knowledge-base design, retrieval-augmented generation, workflow branching, structured AI output, safety boundaries, evaluation, documentation, and production-readiness thinking. The sample equipment documents provide realistic content for the demonstration and can be replaced with another organization's documents for a future implementation.
