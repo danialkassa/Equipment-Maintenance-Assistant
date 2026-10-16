@@ -1,11 +1,11 @@
 {
-  "positive_passed": 0,
+  "positive_passed": 32,
   "positive_total": 38,
-  "positive_pass_rate": 0.0,
+  "positive_pass_rate": 0.8421,
   "negative_passed": 6,
   "negative_total": 6,
-  "average_latency_seconds": 3.06,
-  "total_tokens": 27226,
+  "average_latency_seconds": 12.85,
+  "total_tokens": 230909,
   "acceptance_threshold": 0.8,
-  "accepted": false
+  "accepted": true
 }

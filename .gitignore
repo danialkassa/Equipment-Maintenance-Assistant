@@ -6,3 +6,7 @@ __pycache__/
 node_modules/
 .DS_Store
 *.log
+
+# local scratch diagnostics / intermediate evaluation snapshots
+scripts/_*.py
+docs/_*.json
